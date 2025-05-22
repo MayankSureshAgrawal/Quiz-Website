@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Category Page</title>
+    <link rel="stylesheet" href="Category.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Interactive Quiz Application</h1>
+    </div>
+    
+    <div class="container">
+        <h2>SELECT YOUR CATEGORY</h2>
+        
+
+        <!-- Number of Questions -->
+        <div class="input-group">
+            <label for="questions">No. of Questions</label>
+            <input type="number" id="questions" value="10" min="10" max="10">
+        </div>
+        
+        <!-- Category -->
+        <div class="input-group">
+            <label for="category">Category</label>
+            <select id="category">
+                <option value="sports">Sports</option>
+                <option value="general_knowledge">General Knowledge</option>
+                <option value="science">Science</option>
+                <option value="animals">Animals</option>
+            </select>
+        </div>
+        
+        <!-- Difficulty Level -->
+        <div class="input-group">
+            <label for="difficulty">Difficulty Level</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Normal</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+         <!-- Display Score (This will show the user's score from the last quiz) -->
+         <div class="input-group">
+            <p id="scoreDisplay">Your Last Score:</p>
+        </div>
+
+    </div>
+
+    <!-- Start Quiz Button -->
+    <div class="input-group">
+        <button id="startQuiz">Start Quiz</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the quiz score from localStorage
+            const quizScore = localStorage.getItem('quizScore');
+    
+            // Check if there is a score available and display it
+            if (quizScore !== null) {
+                const scoreElement = document.getElementById('scoreDisplay');
+                scoreElement.textContent = `Your Score: ${quizScore}`;
+            } else {
+                const scoreElement = document.getElementById('scoreDisplay');
+                scoreElement.textContent = `Your Score: N/A`; // If no score is available
+            }
+        });
+    </script>
+
+    <script src="Category.js"></script>
+</body>
+</html>
